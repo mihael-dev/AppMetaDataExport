@@ -1,0 +1,37 @@
+<lui-dialog class="wizarddialog">
+
+
+
+	<lui-dialog-header>
+		<lui-dialog-title>Export App as JSON or CSV</lui-dialog-title>
+	</lui-dialog-header>
+	<lui-dialog-body class="wizarddialogbody cuss"  id="scrollBody">
+		<div qv-extension class="flex-container hide-0-to-100">
+		
+			<!--<div style="padding-top: 5px;padding-bottom: 20px;width: 200px;">
+				<div>
+					<button id="export" class="lui-button" style="width: 160px;" data-ng-disabled="checkItems(1)" ng-click="exportAppCSV();" data-ng-disabled="checkItems()">Export to CSV</button> 
+				</div>
+				<div>
+					<a id="download" ng-href="{{href}}" download="download.csv">Download CSV... </a>
+				</div>
+			</div>-->
+			<div style="padding-top: 5px;padding-bottom: 20px;padding-left: 15px; width: 200px;">
+				<div>
+					<button id="exportJSON" class="lui-button" style="width: 160px;" data-ng-disabled="checkItems(1)" ng-click="exportAppJson();" >Export App to JSON </button> 
+				</div>
+				<div>
+					<a id="downloadJSON" ng-href="{{href}}" download="download.json">Download JSON... </a>
+				</div>
+			</div>
+
+			<div class="flex-item" ng-repeat="div in alternatives track by $index" >{{$index}}</div>
+		</div>
+						
+	</lui-dialog-body>
+		
+			<lui-dialog-footer>
+				<div class="warningLeft">{{input.warningMessage}}</div>
+				<button class="lui-button  lui-dialog__footer-button" ng-click="reload();close();">Close</button>
+			</lui-dialog-footer>
+		</lui-dialog>

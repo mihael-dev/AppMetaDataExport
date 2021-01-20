@@ -1,0 +1,36 @@
+<div qv-extension style="height: 100%; position: relative; overflow: auto;">
+	<div class="flex-container" style="max-width: 450px;">
+		<div style="width: 100%">
+			<span style="font-weight: bold;">Filter App Names:</span>
+		</div>
+		<div style="width: 300px;padding-top: 5px;padding-bottom: 5px;"> 
+			<input type="text" id="filter" ng-model="filterValue" id="term" class="lui-input textarea-bool" ng-change="previewApps();"></input> <!--ng-change="getPreview()"-->
+		</div>
+		<div style="width: 135px;padding-top: 5px;padding-bottom: 5px;padding-left: 15px;">
+			<button id="export" class="lui-button" class="lui-button" ng-click="previewApps();">Filter Apps</button> 
+		</div>
+		
+		
+	</div>	
+
+	<div style="overflow: auto; height: calc(100% - 85px); width: 100%;" >
+		<table class="apps-table">
+			<tr >
+				<th ng-repeat="value in header">{{value}}</th>
+			</tr>
+
+			<tr ng-repeat="row in items">
+				<td ng-class="{'marked': row[0] == 'Done'}" id="{{row[3]}}" ng-repeat="column in row">
+					<!--<span ng-class="{'lui-icon  lui-icon--export': $index == 3}" ng-click="{'exportAppJson($event);' : $index == 3}">{{column}}</span>-->
+					<span ng-if="$index != 0"></span>{{column}}</span>
+					<span title="Export JSON" ng-if="$index == 0" class="lui-icon  lui-icon--export" ng-click="openWizard(row[3]);">{{column}}</span>
+					
+				</td>
+				
+				 
+			</tr>
+			<span></span>
+		</table>
+	</div>
+
+</div>
